@@ -28,12 +28,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -64,7 +64,7 @@ model Consultation {
   phone       String?
   projectType ProjectType
   budget      BudgetRange?
-  message     String              @db.Text
+  message     String
   status      ConsultationStatus  @default(PENDING)
   userId      String?
   user        User?               @relation(fields: [userId], references: [id])
@@ -75,7 +75,7 @@ model Consultation {
 model Message {
   id        String   @id @default(cuid())
   role      String
-  content   String   @db.Text
+  content   String
   userId    String?
   user      User?    @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
@@ -84,8 +84,8 @@ model Message {
 model Portfolio {
   id          String   @id @default(cuid())
   title       String
-  description String   @db.Text
-  techStack   String[]
+  description String
+  techStack   String
   imageUrl    String?
   liveUrl     String?
   githubUrl   String?
@@ -98,9 +98,9 @@ model Portfolio {
 model Service {
   id          String   @id @default(cuid())
   title       String
-  description String   @db.Text
+  description String
   price       String?
-  features    String[]
+  features    String
   featured    Boolean  @default(false)
   order       Int      @default(0)
   createdAt   DateTime @default(now())

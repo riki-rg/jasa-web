@@ -1,0 +1,9 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "biome check --apply --files-ignore-unknown=true",
+    "biome format --write --files-ignore-unknown=true"
+  ],
+  "*.{json,md,css}": [
+    "biome format --write --files-ignore-unknown=true"
+  ]
+}
