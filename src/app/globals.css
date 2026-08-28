@@ -112,4 +112,33 @@
       radial-gradient(ellipse 60% 40% at 80% 80%, oklch(0.8 0.18 50 / 0.12) 0%, transparent 50%),
       radial-gradient(ellipse 50% 30% at 50% 50%, oklch(0.5 0.12 270 / 0.08) 0%, transparent 60%);
   }
+
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  
+  .animate-marquee-left {
+    animation: marquee-left 30s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+  
+  .animate-marquee-right {
+    animation: marquee-right 30s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee-left,
+    .animate-marquee-right {
+      animation: none;
+    }
+  }
 }

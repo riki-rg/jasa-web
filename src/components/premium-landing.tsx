@@ -23,6 +23,7 @@ import { TestimonialsSection } from "@/components/testimonials";
 import { FAQSection } from "@/components/faq";
 import { TrustStrip } from "@/components/trust-strip";
 import { AboutSection } from "@/components/about";
+import { TechStackMarquee } from "@/components/tech-stack-marquee";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const services = [
@@ -58,19 +59,6 @@ const services = [
     features: ["Multi-tenant Auth", "Subscription Billing", "Role-based Access", "Analytics"],
     price: "Mulai 30 Juta",
   },
-];
-
-const techStack = [
-  "Next.js 15",
-  "React 19",
-  "TypeScript",
-  "Tailwind CSS",
-  "Prisma ORM",
-  "SQLite/PostgreSQL",
-  "Better Auth",
-  "Gemini AI",
-  "Vercel",
-  "GitHub Actions",
 ];
 
 const processSteps = [
@@ -338,23 +326,7 @@ export function PremiumLanding() {
 
         <TrustStrip />
 
-        <RevealSection id="tech" eyebrow="Stack" title="Modern stack, tanpa over-engineering.">
-          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-5">
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={tech}
-                className="rounded-2xl border border-border/10 bg-background/80 px-4 py-5 text-center text-sm font-medium text-muted-foreground backdrop-blur-xl"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.04 }}
-                whileHover={{ y: -5, backgroundColor: "var(--muted)" }}
-              >
-                {tech}
-              </motion.div>
-            ))}
-          </div>
-        </RevealSection>
+        <TechStackMarquee />
 
         <AboutSection />
 
@@ -373,7 +345,7 @@ export function PremiumLanding() {
 <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">
                 AI dipakai buat bantu jualan, bukan buat gimmick.
               </h2>
-              <p className="mt-6 text-lg leading-8 text-white/62">
+              <p className="mt-6 text-lg leading-8 text-muted-foreground">
                 Estimator, chatbot, content assistant, dan admin automation bisa ditanam di server.
                 Key aman, biaya terkendali, alur bisnis tetap kamu pegang.
               </p>
@@ -399,7 +371,7 @@ export function PremiumLanding() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-120px" }}
           >
-            <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">
+<h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">
               Ada ide? Bawa ke meja.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
@@ -419,7 +391,7 @@ export function PremiumLanding() {
       </main>
 
       <footer className="relative z-10 border-t border-border/10 bg-background/70 py-12 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 text-white/56 sm:px-6 md:flex-row lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 text-muted-foreground sm:px-6 md:flex-row lg:px-8">
           <div>
             <div className="mb-3 flex items-center gap-3 text-foreground">
               <Code className="h-5 w-5 text-amber-200" />
