@@ -23,6 +23,7 @@ import { TestimonialsSection } from "@/components/testimonials";
 import { FAQSection } from "@/components/faq";
 import { TrustStrip } from "@/components/trust-strip";
 import { AboutSection } from "@/components/about";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const services = [
   {
@@ -111,7 +112,7 @@ export function PremiumLanding() {
   const orbScale = useTransform(scrollYProgress, [0, 0.55, 1], [1, 1.22, 0.92]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#080914] text-white">
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <motion.div
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 z-0"
@@ -128,7 +129,7 @@ export function PremiumLanding() {
         style={{ y: orbY, scale: orbScale }}
       />
 
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#080914]/70 backdrop-blur-2xl">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/70 backdrop-blur-2xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="group flex items-center gap-3">
             <span className="grid h-9 w-9 place-items-center rounded-xl border border-white/15 bg-white/10 shadow-[0_0_40px_rgba(107,91,255,0.22)] transition-transform group-hover:rotate-6">
@@ -149,16 +150,19 @@ export function PremiumLanding() {
               ["Tentang", "#about"],
               ["Kontak", "#contact"],
             ].map(([label, href]) => (
-              <Link key={label} href={href} className="text-sm text-white/60 transition-colors hover:text-white">
+              <Link key={label} href={href} className="text-sm text-foreground/60 transition-colors hover:text-foreground">
                 {label}
               </Link>
             ))}
           </div>
-          <Link href="/consultation">
-            <Button size="sm" className="bg-white text-[#080914] hover:bg-amber-100">
-              Konsultasi Gratis
-            </Button>
-          </Link>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link href="/consultation">
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Konsultasi Gratis
+              </Button>
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -177,20 +181,20 @@ export function PremiumLanding() {
                 className="max-w-5xl text-5xl font-black leading-[0.92] tracking-[-0.08em] sm:text-7xl lg:text-8xl"
               >
                 Website mahal,
-                <span className="block bg-gradient-to-r from-white via-indigo-100 to-amber-200 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-primary via-primary/70 to-accent bg-clip-text text-transparent">
                   bukan template polos.
                 </span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="mt-8 max-w-2xl text-lg leading-8 text-white/68 sm:text-xl"
+                className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl"
               >
                 Bangun landing page, dashboard, e-commerce, atau sistem AI yang terlihat premium,
                 cepat, dan siap dikembangkan. Konsultasi langsung dengan developer, bukan sales deck kosong.
               </motion.p>
               <motion.div variants={fadeUp} className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link href="/consultation">
-                  <Button size="lg" className="w-full gap-2 bg-amber-200 text-[#15110a] hover:bg-amber-100 sm:w-auto">
+                  <Button size="lg" className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto">
                     <MessageSquare className="h-5 w-5" />
                     Mulai Konsultasi
                   </Button>
@@ -199,7 +203,7 @@ export function PremiumLanding() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full border-white/15 bg-white/5 text-white hover:bg-white/10 sm:w-auto"
+                    className="w-full border-border bg-background text-foreground hover:bg-muted sm:w-auto"
                   >
                     Lihat Paket
                     <ArrowRight className="h-5 w-5" />
@@ -262,26 +266,26 @@ export function PremiumLanding() {
                 viewport={{ once: true, margin: "-120px" }}
                 transition={{ delay: index * 0.08 }}
               >
-                <Card className="group h-full border-white/10 bg-white/[0.07] text-white shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-200/40 hover:bg-white/[0.1]">
+                <Card className="group h-full border-border/10 bg-background/80 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-200/40 hover:bg-background">
                   <CardHeader>
-                    <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-amber-200 text-[#15110a] transition-transform group-hover:rotate-6">
+                    <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground transition-transform group-hover:rotate-6">
                       <service.icon className="h-6 w-6" />
                     </div>
-                    <CardTitle className="text-xl text-white">{service.title}</CardTitle>
-                    <CardDescription className="text-white/58">{service.description}</CardDescription>
+<CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
+<CardDescription className="text-muted-foreground">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="mb-6 space-y-2">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-white/62">
+                        <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
                           <CheckCircle className="h-4 w-4 text-emerald-300" />
                           {feature}
                         </li>
                       ))}
                     </ul>
-                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
-                      <span className="font-semibold text-amber-100">{service.price}</span>
-                      <Link href="/consultation" className="text-sm font-medium text-amber-200 hover:text-white">
+                    <div className="flex items-center justify-between border-t border-border pt-4">
+<span className="font-semibold text-primary-foreground">{service.price}</span>
+<Link href="/consultation" className="text-sm font-medium text-primary hover:text-primary/80">
                         Detail <ArrowRight className="ml-1 inline h-4 w-4" />
                       </Link>
                     </div>
@@ -303,20 +307,20 @@ export function PremiumLanding() {
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.number}
-                className="relative min-h-[320px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl"
+                className="relative min-h-[320px] overflow-hidden rounded-[2rem] border border-border/10 bg-background/80 p-6 backdrop-blur-xl"
                 initial={{ opacity: 0, y: 48 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-120px" }}
                 transition={{ delay: index * 0.12 }}
               >
-                <span className="text-7xl font-black tracking-[-0.08em] text-white/10">{step.number}</span>
-                <h3 className="mt-10 text-2xl font-bold text-white">{step.title}</h3>
-                <p className="mt-4 text-sm leading-6 text-white/58">{step.description}</p>
-                <div className="mt-6 pt-6 border-t border-white/10">
+<span className="text-7xl font-black tracking-[-0.08em] text-foreground/10">{step.number}</span>
+<h3 className="mt-10 text-2xl font-bold text-foreground">{step.title}</h3>
+<p className="mt-4 text-sm leading-6 text-muted-foreground">{step.description}</p>
+<div className="mt-6 pt-6 border-t border-border">
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/70">Deliverables</p>
                   <ul className="space-y-2">
                     {step.deliverables.map((deliverable) => (
-                      <li key={deliverable} className="flex items-center gap-2 text-sm text-white/62">
+                      <li key={deliverable} className="flex items-center gap-2 text-sm text-muted-foreground">
                         <CheckCircle className="h-4 w-4 text-emerald-300" />
                         {deliverable}
                       </li>
@@ -339,12 +343,12 @@ export function PremiumLanding() {
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech}
-                className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-5 text-center text-sm font-medium text-white/76 backdrop-blur-xl"
+                className="rounded-2xl border border-border/10 bg-background/80 px-4 py-5 text-center text-sm font-medium text-muted-foreground backdrop-blur-xl"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.04 }}
-                whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.11)" }}
+                whileHover={{ y: -5, backgroundColor: "var(--muted)" }}
               >
                 {tech}
               </motion.div>
@@ -366,7 +370,7 @@ export function PremiumLanding() {
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
                 AI workflow
               </p>
-              <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">
+<h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">
                 AI dipakai buat bantu jualan, bukan buat gimmick.
               </h2>
               <p className="mt-6 text-lg leading-8 text-white/62">
@@ -374,10 +378,10 @@ export function PremiumLanding() {
                 Key aman, biaya terkendali, alur bisnis tetap kamu pegang.
               </p>
             </motion.div>
-            <Card className="border-white/10 bg-white/[0.08] text-white backdrop-blur-2xl">
+            <Card className="border-border/10 bg-background/80 text-foreground backdrop-blur-2xl">
               <CardHeader>
-                <CardTitle className="text-white">Demo AI Estimator</CardTitle>
-                <CardDescription className="text-white/58">Coba estimasi project Anda dengan AI</CardDescription>
+<CardTitle className="text-foreground">Demo AI Estimator</CardTitle>
+<CardDescription className="text-muted-foreground">Coba estimasi project Anda dengan AI</CardDescription>
               </CardHeader>
               <CardContent>
                 <AIEstimatorDemo />
@@ -390,7 +394,7 @@ export function PremiumLanding() {
 
         <section id="contact" className="px-4 py-28 sm:px-6 lg:px-8">
           <motion.div
-            className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/[0.14] to-white/[0.04] p-8 text-center shadow-2xl shadow-indigo-950/40 backdrop-blur-2xl sm:p-16"
+            className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-border/10 bg-gradient-to-br from-primary/10 to-accent/5 p-8 text-center shadow-2xl shadow-primary/20 backdrop-blur-2xl sm:p-16"
             initial={{ opacity: 0, y: 48 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-120px" }}
@@ -398,12 +402,12 @@ export function PremiumLanding() {
             <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">
               Ada ide? Bawa ke meja.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/62">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
               Konsultasi 30 menit. Kita potong scope yang tidak perlu, pilih stack masuk akal,
               lalu bikin rencana launch yang realistis.
             </p>
             <Link href="/consultation" className="mt-10 inline-block">
-              <Button size="xl" className="gap-2 bg-amber-200 text-[#15110a] hover:bg-amber-100">
+              <Button size="xl" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
                 <MessageSquare className="h-6 w-6" />
                 Konsultasi Sekarang
               </Button>
@@ -414,18 +418,18 @@ export function PremiumLanding() {
         <FAQSection />
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 bg-[#080914]/70 py-12 backdrop-blur-xl">
+      <footer className="relative z-10 border-t border-border/10 bg-background/70 py-12 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 text-white/56 sm:px-6 md:flex-row lg:px-8">
           <div>
-            <div className="mb-3 flex items-center gap-3 text-white">
+            <div className="mb-3 flex items-center gap-3 text-foreground">
               <Code className="h-5 w-5 text-amber-200" />
               <span className="font-semibold">Jasa Web Coding</span>
             </div>
-            <p className="max-w-md text-sm leading-6">
+            <p className="max-w-md text-sm leading-6 text-muted-foreground">
               Web studio kecil untuk website custom, e-commerce, SaaS, dashboard, dan AI integration.
             </p>
           </div>
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-sm text-muted-foreground">
             <p>Email: hello@jasawebcoding.com</p>
             <p>WhatsApp: +62 8xx-xxxx-xxxx</p>
             <p>GitHub: github.com/riki-rg</p>
