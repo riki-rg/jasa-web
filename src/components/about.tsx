@@ -43,7 +43,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-120px" }}
           >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
               Independent Web Studio
             </p>
             <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl mb-6">
@@ -62,7 +62,7 @@ export function AboutSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/consultation">
-                <Button size="lg" className="w-full gap-2 bg-amber-200 text-[#15110a] hover:bg-amber-100 sm:w-auto">
+                <Button size="lg" className="w-full gap-2 bg-accent text-[#15110a] hover:bg-accent sm:w-auto">
                   <MessageSquare className="h-5 w-5" />
                   Mulai Konsultasi
                 </Button>
@@ -83,7 +83,7 @@ export function AboutSection() {
             transition={{ delay: 0.2 }}
           >
             <div className="relative">
-              <div className="absolute -inset-8 rounded-[3rem] bg-amber-200/20 blur-3xl" />
+              <div className="absolute -inset-8 rounded-[3rem] bg-accent-muted blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-background/80 p-4 shadow-2xl shadow-amber-950/40 backdrop-blur-2xl">
                 <div className="rounded-[1.5rem] border border-border/20 bg-[#0d1022]/95 p-6">
                   <div className="mb-6 flex items-center justify-between border-b border-border/20 pb-4">
@@ -92,7 +92,7 @@ export function AboutSection() {
                       <span className="h-3 w-3 rounded-full bg-amber-300" />
                       <span className="h-3 w-3 rounded-full bg-emerald-400" />
                     </div>
-                    <span className="rounded-full bg-amber-200/10 px-3 py-1 text-xs text-amber-200">
+                    <span className="rounded-full bg-accent/10 px-3 py-1 text-xs text-accent">
                       about.json
                     </span>
                   </div>
@@ -105,7 +105,7 @@ export function AboutSection() {
                         transition={{ duration: 3 + index, repeat: Infinity, ease: "easeInOut" }}
                       >
                         <div className="mb-3 flex items-center gap-3">
-                          <div className="p-2 rounded-xl bg-amber-200/20 text-amber-200">
+                          <div className="p-2 rounded-xl bg-accent-muted text-accent">
                             <value.icon className="h-5 w-5" />
                           </div>
                           <h4 className="font-semibold text-foreground">{value.title}</h4>
@@ -144,7 +144,7 @@ function RevealSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             {eyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>

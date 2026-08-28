@@ -76,15 +76,15 @@ export function PortfolioSection() {
             viewport={{ once: true, margin: "-120px" }}
             transition={{ delay: index * 0.08 }}
           >
-            <Card className={`group h-full border-border/20 bg-background/70 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-200/40 hover:bg-background ${project.featured ? "border-amber-200/30 ring-1 ring-amber-200/20" : ""}`}>
+            <Card className={`group h-full border-border/20 bg-background/70 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-accent-border hover:bg-background ${project.featured ? "border-accent/30 ring-1 ring-amber-200/20" : ""}`}>
               {project.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 text-xs font-semibold bg-amber-200 text-[#15110a] rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 text-xs font-semibold bg-accent text-[#15110a] rounded-full">
                   Featured
                 </div>
               )}
               <CardHeader>
                 <div className="mb-4 flex items-center gap-2">
-                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-amber-200/70">
+                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-muted">
                     {project.category}
                   </span>
                   <CategoryIcon category={project.category} />
@@ -97,7 +97,7 @@ export function PortfolioSection() {
                   {project.metrics.map((metric) => (
                     <li key={metric.label} className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">{metric.label}</span>
-                      <span className="font-semibold text-amber-100">{metric.value}</span>
+                      <span className="font-semibold text-accent-foreground">{metric.value}</span>
                     </li>
                   ))}
                 </ul>
@@ -109,7 +109,7 @@ export function PortfolioSection() {
                   ))}
                 </div>
                 <div className="flex items-center justify-between border-t border-border/20 pt-4">
-                  <Link href="/consultation" className="text-sm font-medium text-amber-200 hover:text-foreground">
+                  <Link href="/consultation" className="text-sm font-medium text-accent hover:text-foreground">
                     Detail <ArrowRight className="ml-1 inline h-4 w-4" />
                   </Link>
                 </div>
@@ -138,7 +138,7 @@ export function PortfolioSection() {
 
 function CategoryIcon({ category }: { category: string }) {
   const Icon = categoryIcons[category as keyof typeof categoryIcons] || Code;
-  return <Icon className="h-4 w-4 text-amber-200/70" />;
+  return <Icon className="h-4 w-4 text-accent-muted" />;
 }
 
 function RevealSection({
@@ -161,7 +161,7 @@ function RevealSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             {eyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>

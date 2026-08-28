@@ -107,7 +107,7 @@ export function TechStackMarquee() {
     <section id="tech-stack" className="relative py-20 overflow-hidden bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             Tech Stack
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">

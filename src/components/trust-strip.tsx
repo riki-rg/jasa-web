@@ -31,9 +31,9 @@ export function TrustStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-120px" }}
               transition={{ delay: index * 0.08 }}
-              className="text-center p-6 rounded-2xl border border-border/20 bg-background/60 transition-all hover:border-amber-200/40 hover:bg-background/80"
+              className="text-center p-6 rounded-2xl border border-border/20 bg-background/60 transition-all hover:border-accent-border hover:bg-background/80"
             >
-              <div className="mb-3 flex items-center justify-center gap-2 text-amber-200">
+              <div className="mb-3 flex items-center justify-center gap-2 text-accent">
                 <stat.icon className="h-6 w-6" />
               </div>
               <p className="text-3xl sm:text-4xl font-black tracking-[-0.04em] text-foreground">{stat.value}</p>
@@ -50,7 +50,7 @@ export function TrustStrip() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.04 }}
-              className="px-4 py-2 rounded-full border border-border/20 bg-background/60 text-sm font-medium text-foreground/70 backdrop-blur-xl hover:border-amber-200/40 hover:bg-background transition-colors"
+              className="px-4 py-2 rounded-full border border-border/20 bg-background/60 text-sm font-medium text-foreground/70 backdrop-blur-xl hover:border-accent-border hover:bg-background transition-colors"
             >
               {badge.label}
             </motion.span>
@@ -73,7 +73,7 @@ export function TrustStrip() {
               CSP & Security Headers
             </span>
             <span className="flex items-center gap-1.5 text-foreground/70">
-              <Award className="h-4 w-4 text-amber-300" />
+              <Award className="h-4 w-4 text-accent" />
               TypeScript Strict Mode
             </span>
             <span className="flex items-center gap-1.5 text-foreground/70">
@@ -111,7 +111,7 @@ function RevealSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             {eyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>

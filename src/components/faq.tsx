@@ -135,11 +135,11 @@ function FAQItem({
       viewport={{ once: true, margin: "-120px" }}
       transition={{ delay: index * 0.06 }}
     >
-      <Card className="group bg-background/70 border-border/20 text-foreground overflow-hidden transition-all duration-300 hover:border-amber-200/40">
+      <Card className="group bg-background/70 border-border/20 text-foreground overflow-hidden transition-all duration-300 hover:border-accent-border">
         <Button
           onClick={onToggle}
           variant="ghost"
-          className="w-full px-6 py-5 text-left font-medium text-lg text-foreground hover:bg-muted/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/50"
+          className="w-full px-6 py-5 text-left font-medium text-lg text-foreground hover:bg-muted/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
           aria-expanded={isOpen}
         >
           <div className="flex items-center justify-between gap-4">
@@ -147,7 +147,7 @@ function FAQItem({
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.2 }}
-              className="text-amber-200/70 flex-shrink-0"
+              className="text-accent-muted flex-shrink-0"
             >
               <ChevronDown className="h-6 w-6" />
             </motion.div>
@@ -188,7 +188,7 @@ function RevealSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             {eyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>

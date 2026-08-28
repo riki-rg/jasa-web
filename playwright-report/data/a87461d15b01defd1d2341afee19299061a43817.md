@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: consultation.spec.ts >> Consultation Page >> should fill and submit form
-- Location: e2e/consultation.spec.ts:23:7
+- Name: consultation.spec.ts >> Consultation Page >> should display form fields
+- Location: e2e/consultation.spec.ts:14:7
 
 # Error details
 

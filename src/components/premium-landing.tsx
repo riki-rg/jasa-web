@@ -113,7 +113,7 @@ export function PremiumLanding() {
 
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none fixed left-1/2 top-24 z-0 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl"
+        className="pointer-events-none fixed left-1/2 top-24 z-0 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"
         style={{ y: orbY, scale: orbScale }}
       />
 
@@ -121,7 +121,7 @@ export function PremiumLanding() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="group flex items-center gap-3">
             <span className="grid h-9 w-9 place-items-center rounded-xl border border-border/20 bg-background/10 shadow-[0_0_40px_rgba(107,91,255,0.22)] transition-transform group-hover:rotate-6">
-              <Code className="h-5 w-5 text-amber-200" />
+              <Code className="h-5 w-5 text-accent" />
             </span>
             <span className="text-sm font-semibold tracking-[0.28em] text-foreground/90 uppercase">
               Jasa Web Coding
@@ -160,7 +160,7 @@ export function PremiumLanding() {
             <motion.div initial="hidden" animate="visible" transition={{ staggerChildren: 0.12 }}>
               <motion.p
                 variants={fadeUp}
-                className="mb-6 text-xs font-semibold uppercase tracking-[0.38em] text-amber-200/80"
+                className="mb-6 text-xs font-semibold uppercase tracking-[0.38em] text-accent-muted"
               >
                 Independent web studio for serious ideas
               </motion.p>
@@ -206,7 +206,7 @@ export function PremiumLanding() {
               transition={{ duration: 0.9, ease: "easeOut" }}
               className="relative mx-auto w-full max-w-xl lg:mx-0"
             >
-              <div className="absolute -inset-8 rounded-[3rem] bg-indigo-500/20 blur-3xl" />
+              <div className="absolute -inset-8 rounded-[3rem] bg-primary/20 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-background/8 p-4 shadow-2xl shadow-primary/20 backdrop-blur-2xl">
                 <div className="rounded-[1.5rem] border border-border/10 bg-muted/50 p-5">
                   <div className="mb-5 flex items-center justify-between border-b border-border/10 pb-4">
@@ -231,7 +231,7 @@ export function PremiumLanding() {
                         animate={{ y: [0, -6, 0] }}
                         transition={{ duration: 4 + index, repeat: Infinity, ease: "easeInOut" }}
                       >
-                        <p className="text-xs uppercase tracking-[0.24em] text-amber-200/70">{title}</p>
+                        <p className="text-xs uppercase tracking-[0.24em] text-accent-muted">{title}</p>
                         <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
                       </motion.div>
                     ))}
@@ -254,7 +254,7 @@ export function PremiumLanding() {
                 viewport={{ once: true, margin: "-120px" }}
                 transition={{ delay: index * 0.08 }}
               >
-                <Card className="group h-full border-border/10 bg-background/80 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-200/40 hover:bg-background">
+                <Card className="group h-full border-border/10 bg-background/80 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-accent-border hover:bg-background">
                   <CardHeader>
                     <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground transition-transform group-hover:rotate-6">
                       <service.icon className="h-6 w-6" />
@@ -303,7 +303,7 @@ export function PremiumLanding() {
 <h3 className="mt-10 text-2xl font-bold text-foreground">{step.title}</h3>
 <p className="mt-4 text-sm leading-6 text-muted-foreground">{step.description}</p>
 <div className="mt-6 pt-6 border-t border-border">
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/70">Deliverables</p>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent-muted">Deliverables</p>
                   <ul className="space-y-2">
                     {step.deliverables.map((deliverable) => (
                       <li key={deliverable} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -331,7 +331,7 @@ export function PremiumLanding() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-120px" }}
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
                 AI workflow
               </p>
 <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">
@@ -386,7 +386,7 @@ export function PremiumLanding() {
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 text-muted-foreground sm:px-6 md:flex-row lg:px-8">
           <div>
             <div className="mb-3 flex items-center gap-3 text-foreground">
-              <Code className="h-5 w-5 text-amber-200" />
+              <Code className="h-5 w-5 text-accent" />
               <span className="font-semibold">Jasa Web Coding</span>
             </div>
             <p className="max-w-md text-sm leading-6 text-muted-foreground">
@@ -424,7 +424,7 @@ function RevealSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             {eyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>

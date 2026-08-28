@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: consultation.spec.ts >> Consultation Page >> should fill and submit form
-- Location: e2e/consultation.spec.ts:23:7
+- Name: consultation.spec.ts >> Consultation Page >> should load consultation page
+- Location: e2e/consultation.spec.ts:8:7
 
 # Error details
 

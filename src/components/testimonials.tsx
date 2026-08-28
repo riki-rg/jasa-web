@@ -103,25 +103,25 @@ export function TestimonialsSection() {
           <Card className="bg-background/70 border-border/20 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl p-8 sm:p-12 relative overflow-hidden">
             <div className="absolute top-6 right-6 flex gap-1">
               {Array.from({ length: current.stars }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-amber-300 text-amber-300" />
+                <Star key={i} className="h-5 w-5 fill-accent text-accent" />
               ))}
             </div>
 
             <div className="mb-8 relative">
-              <MessageSquare className="absolute -top-4 -left-4 h-12 w-12 text-amber-200/20" />
+              <MessageSquare className="absolute -top-4 -left-4 h-12 w-12 text-accent/20" />
               <p className="text-lg sm:text-xl leading-8 text-foreground/85 relative z-10">
                 "{current.quote}"
               </p>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full bg-amber-200/20 flex items-center justify-center text-amber-200 font-semibold text-lg">
+              <div className="h-12 w-12 rounded-full bg-accent-muted flex items-center justify-center text-accent font-semibold text-lg">
                 {current.avatar}
               </div>
               <div>
                 <p className="font-semibold text-foreground">{current.author}</p>
                 <p className="text-sm text-muted-foreground">{current.role} • {current.company}</p>
-                <p className="text-xs text-amber-200/70 mt-1">Project: {current.project}</p>
+                <p className="text-xs text-accent-muted mt-1">Project: {current.project}</p>
               </div>
             </div>
 
@@ -130,7 +130,7 @@ export function TestimonialsSection() {
                 {Object.entries(current.metrics).map(([key, value]) => (
                   <div key={key} className="flex items-center gap-1.5">
                     <CheckCircle className="h-4 w-4 text-emerald-300" />
-                    <span className="font-semibold text-amber-100">{value}</span>
+                    <span className="font-semibold text-accent-foreground">{value}</span>
                     <span className="text-muted-foreground">{key}</span>
                   </div>
                 ))}
@@ -150,7 +150,7 @@ export function TestimonialsSection() {
                   {testimonials.map((_, i) => (
                     <motion.div
                       key={i}
-                      className={`h-2 w-2 rounded-full transition-colors ${i === index ? "bg-amber-200 w-6" : "bg-white/20"}`}
+                      className={`h-2 w-2 rounded-full transition-colors ${i === index ? "bg-accent w-6" : "bg-background/20"}`}
                       animate={{ width: i === index ? 24 : 8 }}
                       transition={{ duration: 0.3 }}
                     />
@@ -209,7 +209,7 @@ function RevealSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
             {eyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
