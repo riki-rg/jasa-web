@@ -120,10 +120,10 @@ export function PremiumLanding() {
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/70 backdrop-blur-2xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="group flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-xl border border-white/15 bg-white/10 shadow-[0_0_40px_rgba(107,91,255,0.22)] transition-transform group-hover:rotate-6">
+            <span className="grid h-9 w-9 place-items-center rounded-xl border border-border/20 bg-background/10 shadow-[0_0_40px_rgba(107,91,255,0.22)] transition-transform group-hover:rotate-6">
               <Code className="h-5 w-5 text-amber-200" />
             </span>
-            <span className="text-sm font-semibold tracking-[0.28em] text-white/90 uppercase">
+            <span className="text-sm font-semibold tracking-[0.28em] text-foreground/90 uppercase">
               Jasa Web Coding
             </span>
           </Link>
@@ -207,9 +207,9 @@ export function PremiumLanding() {
               className="relative mx-auto w-full max-w-xl lg:mx-0"
             >
               <div className="absolute -inset-8 rounded-[3rem] bg-indigo-500/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.08] p-4 shadow-2xl shadow-indigo-950/60 backdrop-blur-2xl">
-                <div className="rounded-[1.5rem] border border-white/10 bg-[#0d1022]/95 p-5">
-                  <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-background/8 p-4 shadow-2xl shadow-primary/20 backdrop-blur-2xl">
+                <div className="rounded-[1.5rem] border border-border/10 bg-muted/50 p-5">
+                  <div className="mb-5 flex items-center justify-between border-b border-border/10 pb-4">
                     <div className="flex gap-2">
                       <span className="h-3 w-3 rounded-full bg-red-400" />
                       <span className="h-3 w-3 rounded-full bg-amber-300" />
@@ -227,12 +227,12 @@ export function PremiumLanding() {
                     ].map(([title, desc], index) => (
                       <motion.div
                         key={title}
-                        className="rounded-2xl border border-white/10 bg-white/[0.05] p-4"
+                        className="rounded-2xl border border-border/10 bg-background/5 p-4"
                         animate={{ y: [0, -6, 0] }}
                         transition={{ duration: 4 + index, repeat: Infinity, ease: "easeInOut" }}
                       >
                         <p className="text-xs uppercase tracking-[0.24em] text-amber-200/70">{title}</p>
-                        <p className="mt-2 text-sm text-white/76">{desc}</p>
+                        <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -435,7 +435,7 @@ function RevealSection({
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">{title}</h2>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
         </motion.div>
         {children}
       </div>
@@ -447,8 +447,8 @@ function AIEstimatorDemo() {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
-        <label className="text-sm font-medium text-white/80">Jenis Project</label>
-        <select className="w-full rounded-xl border border-white/10 bg-black/30 px-3 py-3 text-sm text-white outline-none focus:ring-2 focus:ring-amber-200/50">
+        <label className="text-sm font-medium text-muted-foreground">Jenis Project</label>
+        <select className="w-full rounded-xl border border-border bg-muted px-3 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/50">
           <option value="landing">Landing Page</option>
           <option value="ecommerce">E-Commerce</option>
           <option value="saas">SaaS Application</option>
@@ -456,18 +456,18 @@ function AIEstimatorDemo() {
         </select>
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium text-white/80">Fitur Utama</label>
+        <label className="text-sm font-medium text-muted-foreground">Fitur Utama</label>
         <input
           type="text"
           placeholder="user auth, payment, dashboard, notifikasi"
-          className="w-full rounded-xl border border-white/10 bg-black/30 px-3 py-3 text-sm text-white outline-none placeholder:text-white/32 focus:ring-2 focus:ring-amber-200/50"
+          className="w-full rounded-xl border border-border bg-muted px-3 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground/50 focus:ring-2 focus:ring-primary/50"
         />
       </div>
-      <Button className="w-full bg-white text-[#080914] hover:bg-amber-100" variant="outline">
+      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90" variant="outline">
         Estimasi dengan AI
         <Sparkles className="ml-2 h-4 w-4" />
       </Button>
-      <p className="text-center text-xs text-white/42">
+      <p className="text-center text-xs text-muted-foreground">
         Demo simulasi. Konsultasi asli tetap lebih akurat.
       </p>
     </div>
