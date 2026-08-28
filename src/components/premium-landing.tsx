@@ -18,6 +18,11 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PortfolioSection } from "@/components/portfolio";
+import { TestimonialsSection } from "@/components/testimonials";
+import { FAQSection } from "@/components/faq";
+import { TrustStrip } from "@/components/trust-strip";
+import { AboutSection } from "@/components/about";
 
 const services = [
   {
@@ -68,10 +73,30 @@ const techStack = [
 ];
 
 const processSteps = [
-  ["01", "Konsultasi Gratis", "Ide, budget, scope, dan risiko teknis dibedah sebelum quote."],
-  ["02", "Proposal & Kontrak", "Scope jelas, milestone jelas, biaya jelas. Tidak ada tebak-tebakan."],
-  ["03", "Development", "Build bertahap dengan demo rutin, test otomatis, dan code review."],
-  ["04", "Deploy & Handover", "Production deploy, dokumentasi, training admin, dan support 1 bulan."],
+  {
+    number: "01",
+    title: "Konsultasi Gratis",
+    description: "Ide, budget, scope, dan risiko teknis dibedah sebelum quote.",
+    deliverables: ["Scope document", "Rough timeline", "Budget range", "Risk assessment"],
+  },
+  {
+    number: "02",
+    title: "Proposal & Kontrak",
+    description: "Scope jelas, milestone jelas, biaya jelas. Tidak ada tebak-tebakan.",
+    deliverables: ["Detailed proposal", "Fixed price contract", "Milestone schedule", "SLA definition"],
+  },
+  {
+    number: "03",
+    title: "Development",
+    description: "Build bertahap dengan demo rutin, test otomatis, dan code review.",
+    deliverables: ["Weekly demo", "Code reviews", "CI/CD pipeline", "Test reports", "Staging deploy"],
+  },
+  {
+    number: "04",
+    title: "Deploy & Handover",
+    description: "Production deploy, dokumentasi, training admin, dan support 1 bulan.",
+    deliverables: ["Production deploy", "Admin training (2 jam)", "Full documentation", "Source code handover", "1 bulan support gratis"],
+  },
 ];
 
 const fadeUp = {
@@ -118,6 +143,10 @@ export function PremiumLanding() {
               ["Layanan", "#services"],
               ["Proses", "#process"],
               ["Teknologi", "#tech"],
+              ["Portfolio", "#portfolio"],
+              ["Testimoni", "#testimonials"],
+              ["FAQ", "#faq"],
+              ["Tentang", "#about"],
               ["Kontak", "#contact"],
             ].map(([label, href]) => (
               <Link key={label} href={href} className="text-sm text-white/60 transition-colors hover:text-white">
@@ -221,6 +250,8 @@ export function PremiumLanding() {
           </div>
         </section>
 
+        <TrustStrip />
+
         <RevealSection id="services" eyebrow="Services" title="Pilih hasil, bukan jargon.">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
@@ -261,24 +292,47 @@ export function PremiumLanding() {
           </div>
         </RevealSection>
 
+        <PortfolioSection />
+
+        <TestimonialsSection />
+
+        <TrustStrip />
+
         <RevealSection id="process" eyebrow="Process" title="Scroll pelan. Project juga begitu.">
           <div className="grid gap-6 lg:grid-cols-4">
-            {processSteps.map(([number, title, description], index) => (
+            {processSteps.map((step, index) => (
               <motion.div
-                key={number}
-                className="relative min-h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl"
+                key={step.number}
+                className="relative min-h-[320px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl"
                 initial={{ opacity: 0, y: 48 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-120px" }}
                 transition={{ delay: index * 0.12 }}
               >
-                <span className="text-7xl font-black tracking-[-0.08em] text-white/10">{number}</span>
-                <h3 className="mt-10 text-2xl font-bold text-white">{title}</h3>
-                <p className="mt-4 text-sm leading-6 text-white/58">{description}</p>
+                <span className="text-7xl font-black tracking-[-0.08em] text-white/10">{step.number}</span>
+                <h3 className="mt-10 text-2xl font-bold text-white">{step.title}</h3>
+                <p className="mt-4 text-sm leading-6 text-white/58">{step.description}</p>
+                <div className="mt-6 pt-6 border-t border-white/10">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/70">Deliverables</p>
+                  <ul className="space-y-2">
+                    {step.deliverables.map((deliverable) => (
+                      <li key={deliverable} className="flex items-center gap-2 text-sm text-white/62">
+                        <CheckCircle className="h-4 w-4 text-emerald-300" />
+                        {deliverable}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
         </RevealSection>
+
+        <PortfolioSection />
+
+        <TestimonialsSection />
+
+        <TrustStrip />
 
         <RevealSection id="tech" eyebrow="Stack" title="Modern stack, tanpa over-engineering.">
           <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-5">
@@ -297,6 +351,10 @@ export function PremiumLanding() {
             ))}
           </div>
         </RevealSection>
+
+        <AboutSection />
+
+        <FAQSection />
 
         <section className="relative px-4 py-28 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
@@ -328,6 +386,8 @@ export function PremiumLanding() {
           </div>
         </section>
 
+        <FAQSection />
+
         <section id="contact" className="px-4 py-28 sm:px-6 lg:px-8">
           <motion.div
             className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/[0.14] to-white/[0.04] p-8 text-center shadow-2xl shadow-indigo-950/40 backdrop-blur-2xl sm:p-16"
@@ -350,6 +410,8 @@ export function PremiumLanding() {
             </Link>
           </motion.div>
         </section>
+
+        <FAQSection />
       </main>
 
       <footer className="relative z-10 border-t border-white/10 bg-[#080914]/70 py-12 backdrop-blur-xl">
