@@ -46,17 +46,17 @@ export function AboutSection() {
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
               Independent Web Studio
             </p>
-            <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl mb-6">
+            <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl mb-6">
               Satu developer.<br />
               <span className="bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">
                 Fokus pada hasil, bukan jam kerja.
               </span>
             </h2>
-            <p className="text-lg leading-8 text-white/62 mb-8 max-w-xl">
+            <p className="text-lg leading-8 text-muted-foreground mb-8 max-w-xl">
               Saya Riki — full-stack developer yang udah 5+ tahun bangun produk digital dari nol sampai scale.
               Dari landing page UMKM sampai SaaS multi-tenant untuk enterprise.
             </p>
-            <p className="text-lg leading-8 text-white/62 mb-8 max-w-xl">
+            <p className="text-lg leading-8 text-muted-foreground mb-8 max-w-xl">
               Bedanya dengan agency besar: gak ada account manager, gak ada sales deck kosong, gak ada middleman.
               Langsung kerja sama developer yang nulis kodenya. Budget efisien, decision cepat, kualitas tetap premium.
             </p>
@@ -68,7 +68,7 @@ export function AboutSection() {
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="w-full border-white/15 bg-white/5 text-white hover:bg-white/10 sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full border-border/30 bg-background/5 text-foreground hover:bg-background/10 sm:w-auto">
                   Lihat Portfolio
                   <ArrowRight className="h-5 w-5" />
                 </Button>
@@ -84,9 +84,9 @@ export function AboutSection() {
           >
             <div className="relative">
               <div className="absolute -inset-8 rounded-[3rem] bg-amber-200/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.08] p-4 shadow-2xl shadow-amber-950/40 backdrop-blur-2xl">
-                <div className="rounded-[1.5rem] border border-white/10 bg-[#0d1022]/95 p-6">
-                  <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-background/80 p-4 shadow-2xl shadow-amber-950/40 backdrop-blur-2xl">
+                <div className="rounded-[1.5rem] border border-border/20 bg-[#0d1022]/95 p-6">
+                  <div className="mb-6 flex items-center justify-between border-b border-border/20 pb-4">
                     <div className="flex gap-2">
                       <span className="h-3 w-3 rounded-full bg-red-400" />
                       <span className="h-3 w-3 rounded-full bg-amber-300" />
@@ -100,7 +100,7 @@ export function AboutSection() {
                     {values.map((value, index) => (
                       <motion.div
                         key={value.title}
-                        className="rounded-2xl border border-white/10 bg-white/[0.05] p-4"
+                        className="rounded-2xl border border-border/20 bg-background/50 p-4"
                         animate={{ x: [0, -8, 0] }}
                         transition={{ duration: 3 + index, repeat: Infinity, ease: "easeInOut" }}
                       >
@@ -108,9 +108,9 @@ export function AboutSection() {
                           <div className="p-2 rounded-xl bg-amber-200/20 text-amber-200">
                             <value.icon className="h-5 w-5" />
                           </div>
-                          <h4 className="font-semibold text-white">{value.title}</h4>
+                          <h4 className="font-semibold text-foreground">{value.title}</h4>
                         </div>
-                        <p className="text-sm text-white/60 pl-9">{value.desc}</p>
+                        <p className="text-sm text-foreground/60 pl-9">{value.desc}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -147,7 +147,7 @@ function RevealSection({
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">{title}</h2>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
         </motion.div>
         {children}
       </div>

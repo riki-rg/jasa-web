@@ -101,10 +101,10 @@ export function FAQSection() {
             transition={{ delay: 0.4 }}
             className="mt-10 text-center"
           >
-            <p className="text-white/50 mb-4">
+            <p className="text-muted-foreground mb-4">
               Masih ada pertanyaan lain?
             </p>
-            <Button variant="outline" className="w-full sm:w-auto border-white/15 bg-white/5 text-white hover:bg-white/10" asChild>
+            <Button variant="outline" className="w-full sm:w-auto border-border/30 bg-background/5 text-foreground hover:bg-background/10" asChild>
               <Link href="/consultation">
                 Tanya Langsung via Konsultasi
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -135,11 +135,11 @@ function FAQItem({
       viewport={{ once: true, margin: "-120px" }}
       transition={{ delay: index * 0.06 }}
     >
-      <Card className="group bg-white/[0.07] border-white/10 text-white overflow-hidden transition-all duration-300 hover:border-amber-200/40">
+      <Card className="group bg-background/70 border-border/20 text-foreground overflow-hidden transition-all duration-300 hover:border-amber-200/40">
         <Button
           onClick={onToggle}
           variant="ghost"
-          className="w-full px-6 py-5 text-left font-medium text-lg text-white hover:bg-white/[0.03] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/50"
+          className="w-full px-6 py-5 text-left font-medium text-lg text-foreground hover:bg-muted/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/50"
           aria-expanded={isOpen}
         >
           <div className="flex items-center justify-between gap-4">
@@ -159,7 +159,7 @@ function FAQItem({
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="overflow-hidden"
         >
-          <CardContent className="pb-6 px-6 text-white/70 leading-8">
+          <CardContent className="pb-6 px-6 text-foreground/70 leading-8">
             {faq.a}
           </CardContent>
         </motion.div>
@@ -191,7 +191,7 @@ function RevealSection({
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">{title}</h2>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
         </motion.div>
         {children}
       </div>

@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: landing-page.spec.ts >> Landing Page >> should display tech stack
-- Location: e2e/landing-page.spec.ts:47:7
+- Name: landing-page.spec.ts >> Landing Page >> should have navigation links (desktop)
+- Location: e2e/landing-page.spec.ts:17:7
 
 # Error details
 

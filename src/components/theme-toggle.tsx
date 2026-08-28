@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, themes } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -19,6 +19,7 @@ export function ThemeToggle() {
         variant="ghost"
         size="icon"
         className="h-9 w-9"
+        data-testid="theme-toggle"
         aria-label="Toggle theme"
       >
         <Sun className="h-5 w-5" />
@@ -32,7 +33,7 @@ export function ThemeToggle() {
       size="icon"
       className="h-9 w-9"
       onClick={() => {
-        const nextTheme = theme === "dark" ? "light" : "dark";
+        const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
         setTheme(nextTheme);
       }}
       aria-label={`Current theme: ${theme}. Click to change.`}

@@ -100,7 +100,7 @@ export function TestimonialsSection() {
           transition={{ duration: 0.4 }}
           className="relative"
         >
-          <Card className="bg-white/[0.07] border-white/10 text-white shadow-xl shadow-black/20 backdrop-blur-xl p-8 sm:p-12 relative overflow-hidden">
+          <Card className="bg-background/70 border-border/20 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl p-8 sm:p-12 relative overflow-hidden">
             <div className="absolute top-6 right-6 flex gap-1">
               {Array.from({ length: current.stars }).map((_, i) => (
                 <Star key={i} className="h-5 w-5 fill-amber-300 text-amber-300" />
@@ -109,7 +109,7 @@ export function TestimonialsSection() {
 
             <div className="mb-8 relative">
               <MessageSquare className="absolute -top-4 -left-4 h-12 w-12 text-amber-200/20" />
-              <p className="text-lg sm:text-xl leading-8 text-white/85 relative z-10">
+              <p className="text-lg sm:text-xl leading-8 text-foreground/85 relative z-10">
                 "{current.quote}"
               </p>
             </div>
@@ -119,19 +119,19 @@ export function TestimonialsSection() {
                 {current.avatar}
               </div>
               <div>
-                <p className="font-semibold text-white">{current.author}</p>
-                <p className="text-sm text-white/50">{current.role} • {current.company}</p>
+                <p className="font-semibold text-foreground">{current.author}</p>
+                <p className="text-sm text-muted-foreground">{current.role} • {current.company}</p>
                 <p className="text-xs text-amber-200/70 mt-1">Project: {current.project}</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <div className="mt-6 pt-6 border-t border-border/20 flex flex-wrap items-center justify-between gap-4">
               <div className="flex gap-6 text-sm">
                 {Object.entries(current.metrics).map(([key, value]) => (
                   <div key={key} className="flex items-center gap-1.5">
                     <CheckCircle className="h-4 w-4 text-emerald-300" />
                     <span className="font-semibold text-amber-100">{value}</span>
-                    <span className="text-white/40">{key}</span>
+                    <span className="text-muted-foreground">{key}</span>
                   </div>
                 ))}
               </div>
@@ -141,7 +141,7 @@ export function TestimonialsSection() {
                   variant="ghost"
                   size="sm"
                   onClick={prev}
-                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-full hover:bg-background/10 transition-colors"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -160,7 +160,7 @@ export function TestimonialsSection() {
                   variant="ghost"
                   size="sm"
                   onClick={next}
-                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-full hover:bg-background/10 transition-colors"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -178,7 +178,7 @@ export function TestimonialsSection() {
         transition={{ delay: 0.4 }}
         className="mt-10 text-center"
       >
-        <Button variant="outline" className="w-full sm:w-auto border-white/15 bg-white/5 text-white hover:bg-white/10" asChild>
+        <Button variant="outline" className="w-full sm:w-auto border-border/30 bg-background/5 text-foreground hover:bg-background/10" asChild>
           <a href="/testimonials">
             Baca Semua Testimoni
             <ChevronRight className="ml-2 h-5 w-5" />
@@ -212,7 +212,7 @@ function RevealSection({
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">{title}</h2>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
         </motion.div>
         {children}
       </div>

@@ -1,0 +1,126 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: consultation.spec.ts >> Consultation Page >> should fill and submit form
+- Location: e2e/consultation.spec.ts:23:7
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('text=Terima kasih! Form berhasil dikirim')
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('text=Terima kasih! Form berhasil dikirim')
+
+```
+
+```yaml
+- heading "Konsultasi Gratis" [level=3]
+- paragraph: Isi form di samping, kami akan balas via WhatsApp/Email dalam 1x24 jam.
+- paragraph: Gratis & Tanpa Komitmen
+- paragraph: Konsultasi 30 menit, estimasi biaya, saran teknis
+- paragraph: Estimasi AI Instan
+- paragraph: Dapatkan estimasi biaya & timeline otomatis
+- paragraph: 📱 Balasan via WhatsApp/Email
+- paragraph: 📋 Proposal detail dalam 1-2 hari
+- paragraph: 🤝 Kontrak transparan, milestone jelas
+- paragraph: 🚀 Mulai development minggu depan
+- heading "Form Konsultasi Project" [level=3]
+- paragraph: Isi detail project Anda. Semakin detail, semakin akurat estimasinya.
+- text: Nama Lengkap *
+- textbox "Nama Lengkap *":
+  - /placeholder: Nama Anda
+  - text: Test User
+- text: Email *
+- textbox "Email *":
+  - /placeholder: email@domain.com
+  - text: test@example.com
+- text: WhatsApp/Telepon
+- textbox "WhatsApp/Telepon":
+  - /placeholder: +62 8xx-xxxx-xxxx
+  - text: +62 812-3456-7890
+- text: Budget Perkiraan *
+- combobox: 5 - 15 Juta Project menengah
+- text: Jenis Project *
+- combobox: E-Commerce Toko online dengan keranjang & pembayaran
+- text: Deskripsi Project & Fitur *
+- textbox "Deskripsi Project & Fitur *":
+  - /placeholder: "Jelaskan project Anda: fitur utama, target user, referensi design, deadline, dll. Contoh: 'Butuh e-commerce fashion dengan fitur: user login, keranjang, pembayaran midtrans, dashboard admin produk & pesan, wishlist, review produk. Target launch 2 bulan.'"
+  - text: "Butuh e-commerce fashion dengan fitur: user login, keranjang, pembayaran midtrans, dashboard admin produk & pesan, wishlist, review produk. Target launch 2 bulan."
+- button "Dapatkan Estimasi AI"
+- button "Kirim Konsultasi"
+- text: Terjadi kesalahan. Silakan coba lagi atau hubungi langsung via WhatsApp.
+- alert
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from "@playwright/test";
+  2  | 
+  3  | test.describe("Consultation Page", () => {
+  4  |   test.beforeEach(async ({ page }) => {
+  5  |     await page.goto("/consultation");
+  6  |   });
+  7  | 
+  8  |   test("should load consultation page", async ({ page }) => {
+  9  |     // Check for main heading - could be h1, h2, or h3
+  10 |     const heading = page.locator("h1, h2, h3").first();
+  11 |     await expect(heading).toContainText("Konsultasi");
+  12 |   });
+  13 | 
+  14 |   test("should display form fields", async ({ page }) => {
+  15 |     await expect(page.locator("label:has-text('Nama Lengkap')")).toBeVisible();
+  16 |     await expect(page.locator("label:has-text('Email')")).toBeVisible();
+  17 |     await expect(page.locator("label:has-text('WhatsApp/Telepon')")).toBeVisible();
+  18 |     await expect(page.locator("label:has-text('Budget Perkiraan')")).toBeVisible();
+  19 |     await expect(page.locator("label:has-text('Jenis Project')")).toBeVisible();
+  20 |     await expect(page.locator("label:has-text('Deskripsi Project & Fitur')")).toBeVisible();
+  21 |   });
+  22 | 
+  23 |   test("should fill and submit form", async ({ page }) => {
+  24 |     await page.fill('input[name="name"]', "Test User");
+  25 |     await page.fill('input[name="email"]', "test@example.com");
+  26 |     await page.fill('input[name="phone"]', "+62 812-3456-7890");
+  27 | 
+  28 |     // Select budget
+  29 |     await page.click('button[role="combobox"]:has-text("Pilih range budget")');
+  30 |     await page.click('div[role="option"]:has-text("5 - 15 Juta")');
+  31 | 
+  32 |     // Select project type
+  33 |     await page.click('button[role="combobox"]:has-text("Pilih jenis project")');
+  34 |     await page.click('div[role="option"]:has-text("E-Commerce")');
+  35 | 
+  36 |     await page.fill('textarea[name="message"]', "Butuh e-commerce fashion dengan fitur: user login, keranjang, pembayaran midtrans, dashboard admin produk & pesan, wishlist, review produk. Target launch 2 bulan.");
+  37 | 
+  38 |     // Submit form
+  39 |     await page.click('button:has-text("Kirim Konsultasi")');
+  40 | 
+  41 |     // Wait for success message
+> 42 |     await expect(page.locator("text=Terima kasih! Form berhasil dikirim")).toBeVisible({ timeout: 10000 });
+     |                                                                            ^ Error: expect(locator).toBeVisible() failed
+  43 |   });
+  44 | 
+  45 |   test("should show validation errors for empty required fields", async ({ page }) => {
+  46 |     await page.click('button:has-text("Kirim Konsultasi")');
+  47 |     // Check for form validation - HTML5 validation will show browser native messages
+  48 |     // Just verify the button click works
+  49 |     await expect(page.locator('button:has-text("Kirim Konsultasi")')).toBeVisible();
+  50 |   });
+  51 | 
+  52 |   test("should show AI estimate button", async ({ page }) => {
+  53 |     await expect(page.locator('button:has-text("Dapatkan Estimasi AI")')).toBeVisible();
+  54 |   });
+  55 | });
+```

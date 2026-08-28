@@ -31,13 +31,13 @@ export function TrustStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-120px" }}
               transition={{ delay: index * 0.08 }}
-              className="text-center p-6 rounded-2xl border border-white/10 bg-white/[0.06] transition-all hover:border-amber-200/40 hover:bg-white/[0.08]"
+              className="text-center p-6 rounded-2xl border border-border/20 bg-background/60 transition-all hover:border-amber-200/40 hover:bg-background/80"
             >
               <div className="mb-3 flex items-center justify-center gap-2 text-amber-200">
                 <stat.icon className="h-6 w-6" />
               </div>
-              <p className="text-3xl sm:text-4xl font-black tracking-[-0.04em] text-white">{stat.value}</p>
-              <p className="mt-1 text-sm text-white/50">{stat.label}</p>
+              <p className="text-3xl sm:text-4xl font-black tracking-[-0.04em] text-foreground">{stat.value}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -50,7 +50,7 @@ export function TrustStrip() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.04 }}
-              className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.06] text-sm font-medium text-white/70 backdrop-blur-xl hover:border-amber-200/40 hover:bg-white/[0.1] transition-colors"
+              className="px-4 py-2 rounded-full border border-border/20 bg-background/60 text-sm font-medium text-foreground/70 backdrop-blur-xl hover:border-amber-200/40 hover:bg-background transition-colors"
             >
               {badge.label}
             </motion.span>
@@ -62,25 +62,25 @@ export function TrustStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ delay: 0.5 }}
-          className="mt-12 p-8 rounded-2xl border border-white/10 bg-gradient-to-r from-white/[0.1] to-transparent text-center"
+          className="mt-12 p-8 rounded-2xl border border-border/20 bg-gradient-to-r from-white/[0.1] to-transparent text-center"
         >
-          <p className="text-white/60 mb-2 text-sm uppercase tracking-[0.2em]">
+          <p className="text-muted-foreground mb-2 text-sm uppercase tracking-[0.2em]">
             Security & Compliance
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            <span className="flex items-center gap-1.5 text-white/70">
+            <span className="flex items-center gap-1.5 text-foreground/70">
               <Shield className="h-4 w-4 text-emerald-300" />
               CSP & Security Headers
             </span>
-            <span className="flex items-center gap-1.5 text-white/70">
+            <span className="flex items-center gap-1.5 text-foreground/70">
               <Award className="h-4 w-4 text-amber-300" />
               TypeScript Strict Mode
             </span>
-            <span className="flex items-center gap-1.5 text-white/70">
+            <span className="flex items-center gap-1.5 text-foreground/70">
               <Zap className="h-4 w-4 text-blue-300" />
               Rate Limiting & Auth
             </span>
-            <span className="flex items-center gap-1.5 text-white/70">
+            <span className="flex items-center gap-1.5 text-foreground/70">
               <Globe className="h-4 w-4 text-purple-300" />
               GDPR-Ready Data Handling
             </span>
@@ -114,7 +114,7 @@ function RevealSection({
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">{title}</h2>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
         </motion.div>
         {children}
       </div>

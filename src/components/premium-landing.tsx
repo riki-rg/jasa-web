@@ -288,8 +288,6 @@ export function PremiumLanding() {
 
         <TestimonialsSection />
 
-        <TrustStrip />
-
         <RevealSection id="process" eyebrow="Process" title="Scroll pelan. Project juga begitu.">
           <div className="grid gap-6 lg:grid-cols-4">
             {processSteps.map((step, index) => (
@@ -319,12 +317,6 @@ export function PremiumLanding() {
             ))}
           </div>
         </RevealSection>
-
-        <PortfolioSection />
-
-        <TestimonialsSection />
-
-        <TrustStrip />
 
         <TechStackMarquee />
 

@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: landing-page.spec.ts >> Landing Page >> should display tech stack
-- Location: e2e/landing-page.spec.ts:47:7
+- Name: landing-page.spec.ts >> Landing Page >> should display hero section
+- Location: e2e/landing-page.spec.ts:12:7
 
 # Error details
 

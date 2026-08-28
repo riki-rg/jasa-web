@@ -76,7 +76,7 @@ export function PortfolioSection() {
             viewport={{ once: true, margin: "-120px" }}
             transition={{ delay: index * 0.08 }}
           >
-            <Card className={`group h-full border-white/10 bg-white/[0.07] text-white shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-200/40 hover:bg-white/[0.1] ${project.featured ? "border-amber-200/30 ring-1 ring-amber-200/20" : ""}`}>
+            <Card className={`group h-full border-border/20 bg-background/70 text-foreground shadow-xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-200/40 hover:bg-background ${project.featured ? "border-amber-200/30 ring-1 ring-amber-200/20" : ""}`}>
               {project.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 text-xs font-semibold bg-amber-200 text-[#15110a] rounded-full">
                   Featured
@@ -89,27 +89,27 @@ export function PortfolioSection() {
                   </span>
                   <CategoryIcon category={project.category} />
                 </div>
-                <CardTitle className="text-xl text-white">{project.title}</CardTitle>
-                <CardDescription className="text-white/58">{project.description}</CardDescription>
+                <CardTitle className="text-xl text-foreground">{project.title}</CardTitle>
+                <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="mb-6 space-y-2">
                   {project.metrics.map((metric) => (
                     <li key={metric.label} className="flex items-center justify-between">
-                      <span className="text-sm text-white/58">{metric.label}</span>
+                      <span className="text-sm text-muted-foreground">{metric.label}</span>
                       <span className="font-semibold text-amber-100">{metric.value}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="mb-4 flex flex-wrap gap-1.5">
                   {project.stack.map((tech) => (
-                    <span key={tech} className="text-xs px-2 py-1 rounded border border-white/10 bg-white/[0.06] text-white/60">
+                    <span key={tech} className="text-xs px-2 py-1 rounded border border-border/20 bg-background/60 text-muted-foreground">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between border-t border-white/10 pt-4">
-                  <Link href="/consultation" className="text-sm font-medium text-amber-200 hover:text-white">
+                <div className="flex items-center justify-between border-t border-border/20 pt-4">
+                  <Link href="/consultation" className="text-sm font-medium text-amber-200 hover:text-foreground">
                     Detail <ArrowRight className="ml-1 inline h-4 w-4" />
                   </Link>
                 </div>
@@ -125,7 +125,7 @@ export function PortfolioSection() {
         transition={{ delay: 0.4 }}
         className="mt-10 text-center"
       >
-        <Button variant="outline" className="w-full sm:w-auto border-white/15 bg-white/5 text-white hover:bg-white/10" asChild>
+        <Button variant="outline" className="w-full sm:w-auto border-border/30 bg-background/5 text-foreground hover:bg-background/10" asChild>
           <Link href="/portfolio">
             Lihat Semua Proyek
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -164,7 +164,7 @@ function RevealSection({
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-amber-200/70">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl">{title}</h2>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">{title}</h2>
         </motion.div>
         {children}
       </div>
