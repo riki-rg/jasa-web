@@ -10,12 +10,11 @@ test.describe("Landing Page", () => {
   });
 
   test("should display hero section", async ({ page }) => {
-    await expect(page.locator("h1").first()).toContainText("Website Profesional");
-    await expect(page.locator("text=Dibangun dengan AI")).toBeVisible();
+    await expect(page.locator("h1").first()).toContainText("Website mahal");
+    await expect(page.locator("text=bukan template polos")).toBeVisible();
   });
 
   test("should have navigation links (desktop)", async ({ page }) => {
-    // Only run on desktop browsers
     const viewport = page.viewportSize();
     if (viewport && viewport.width < 768) {
       test.skip();
@@ -29,6 +28,7 @@ test.describe("Landing Page", () => {
 
   test("should display services section", async ({ page }) => {
     await expect(page.locator("#services")).toBeVisible();
+    await expect(page.locator("#services").locator("text=Pilih hasil, bukan jargon")).toBeVisible();
     await expect(page.locator("#services").locator("text=Website Custom")).toBeVisible();
     await expect(page.locator("#services").locator("text=E-Commerce")).toBeVisible();
     await expect(page.locator("#services").locator("text=AI Integration")).toBeVisible();
@@ -37,6 +37,7 @@ test.describe("Landing Page", () => {
 
   test("should display process section", async ({ page }) => {
     await expect(page.locator("#process")).toBeVisible();
+    await expect(page.locator("#process").locator("text=Scroll pelan. Project juga begitu.")).toBeVisible();
     await expect(page.locator("#process").locator("text=Konsultasi Gratis")).toBeVisible();
     await expect(page.locator("#process").locator("text=Proposal & Kontrak")).toBeVisible();
     await expect(page.locator("#process").locator("text=Development")).toBeVisible();
@@ -45,6 +46,7 @@ test.describe("Landing Page", () => {
 
   test("should display tech stack", async ({ page }) => {
     await expect(page.locator("#tech")).toBeVisible();
+    await expect(page.locator("#tech").locator("text=Modern stack, tanpa over-engineering.")).toBeVisible();
     await expect(page.locator("#tech").locator("text=Next.js 15").first()).toBeVisible();
     await expect(page.locator("#tech").locator("text=TypeScript").first()).toBeVisible();
     await expect(page.locator("#tech").locator("text=Tailwind CSS").first()).toBeVisible();
@@ -60,7 +62,6 @@ test.describe("Landing Page", () => {
   test("should have footer with contact info", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
-    // Use first match to avoid strict mode violation
     await expect(footer.locator("text=Jasa Web Coding").first()).toBeVisible();
     await expect(footer.locator("text=hello@jasawebcoding.com")).toBeVisible();
   });
