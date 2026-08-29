@@ -61,26 +61,21 @@ export function FAQSection() {
     setOpenIndex((prev: number | null) => (prev === index ? null : index));
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.a,
-      },
-    })),
-  };
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <RevealSection id="faq" eyebrow="FAQ" title="Pertanyaan yang sering ditanyakan.">
+    <div className="relative px-4 py-28 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          className="mb-14 max-w-3xl"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+        >
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
+            FAQ
+          </p>
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">Pertanyaan yang sering ditanyakan.</h2>
+        </motion.div>
+
         <div className="mx-auto max-w-4xl">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -112,8 +107,8 @@ export function FAQSection() {
             </Button>
           </motion.div>
         </div>
-      </RevealSection>
-    </>
+      </div>
+    </div>
   );
 }
 
@@ -128,6 +123,12 @@ function FAQItem({
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggle = (index: number) => {
+    setOpenIndex((prev: number | null) => (prev === index ? null : index));
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
