@@ -48,7 +48,7 @@ export function AboutSection() {
             </p>
             <h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl mb-6">
               Satu developer.<br />
-              <span className="bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent via-accent/70 to-accent bg-clip-text text-transparent">
                 Fokus pada hasil, bukan jam kerja.
               </span>
             </h2>

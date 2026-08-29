@@ -19,7 +19,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PortfolioSection } from "@/components/portfolio";
-import { TestimonialsSection } from "@/components/testimonials";
+
 import { FAQSection } from "@/components/faq";
 import { TrustStrip } from "@/components/trust-strip";
 import { AboutSection } from "@/components/about";
@@ -285,8 +285,6 @@ export function PremiumLanding() {
         </RevealSection>
 
         <PortfolioSection />
-
-        <TestimonialsSection />
 
         <RevealSection id="process" eyebrow="Process" title="Scroll pelan. Project juga begitu.">
           <div className="grid gap-6 lg:grid-cols-4">

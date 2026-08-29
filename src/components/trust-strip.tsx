@@ -62,7 +62,7 @@ export function TrustStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ delay: 0.5 }}
-          className="mt-12 p-8 rounded-2xl border border-border/20 bg-gradient-to-r from-white/[0.1] to-transparent text-center"
+          className="mt-12 p-8 rounded-2xl border border-border/20 bg-gradient-to-r from-accent/5 to-transparent text-center"
         >
           <p className="text-muted-foreground mb-2 text-sm uppercase tracking-[0.2em]">
             Security & Compliance
