@@ -344,8 +344,6 @@ export function PremiumLanding() {
             </Link>
           </motion.div>
         </section>
-
-        <FAQSection />
       </main>
 
       <footer className="relative z-10 border-t border-border/10 bg-background/70 py-12 backdrop-blur-xl">
