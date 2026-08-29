@@ -97,7 +97,7 @@ export function PortfolioSection() {
                   {project.metrics.map((metric) => (
                     <li key={metric.label} className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">{metric.label}</span>
-                      <span className="font-semibold text-accent-foreground">{metric.value}</span>
+                      <span className="font-semibold text-accent">{metric.value}</span>
                     </li>
                   ))}
                 </ul>

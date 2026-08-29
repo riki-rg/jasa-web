@@ -320,39 +320,7 @@ export function PremiumLanding() {
 
         <AboutSection />
 
-        <FAQSection />
-
-        <section className="relative px-4 py-28 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-120px" }}
-            >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent-muted">
-                AI workflow
-              </p>
-<h2 className="text-4xl font-black tracking-[-0.06em] text-foreground sm:text-6xl">
-                AI dipakai buat bantu jualan, bukan buat gimmick.
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Estimator, chatbot, content assistant, dan admin automation bisa ditanam di server.
-                Key aman, biaya terkendali, alur bisnis tetap kamu pegang.
-              </p>
-            </motion.div>
-            <Card className="border-border/10 bg-background/80 text-foreground backdrop-blur-2xl">
-              <CardHeader>
-<CardTitle className="text-foreground">Demo AI Estimator</CardTitle>
-<CardDescription className="text-muted-foreground">Coba estimasi project Anda dengan AI</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <AIEstimatorDemo />
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        <FAQSection />
+<FAQSection />
 
         <section id="contact" className="px-4 py-28 sm:px-6 lg:px-8">
           <motion.div
