@@ -3,7 +3,44 @@ import { streamText } from "ai";
 
 export const geminiModel = google("gemini-1.5-pro");
 
+const hasGeminiKey = !!process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+
+function mockStream(text: string): ReadableStream<string> {
+  const encoder = new TextEncoder();
+  // Split into chunks to mimic streaming
+  const chunks = text.split(/(\s+)/);
+  return new ReadableStream<string>({
+    async start(controller) {
+      for (const c of chunks) {
+        controller.enqueue(c);
+        await new Promise((r) => setTimeout(r, 8));
+      }
+      controller.close();
+    },
+  });
+}
+
 export async function generateWithGemini(prompt: string, systemPrompt?: string) {
+  if (!hasGeminiKey) {
+    return mockStream(
+      JSON.stringify(
+        {
+          estimatedHours: 120,
+          priceRange: { min: 12, max: 18 },
+          timeline: "4-6 minggu",
+          complexity: "medium",
+          breakdown: [
+            { phase: "Discovery & Design", hours: 20 },
+            { phase: "Development", hours: 70 },
+            { phase: "Testing & Deploy", hours: 30 },
+          ],
+          note: "Mock estimate (GOOGLE_GENERATIVE_AI_API_KEY belum di-set). Hubungi konsultasi untuk estimasi akurat.",
+        },
+        null,
+        2
+      )
+    );
+  }
   try {
     const result = await streamText({
       model: geminiModel,

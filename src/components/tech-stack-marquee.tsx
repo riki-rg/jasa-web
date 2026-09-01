@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import {
   SiReact,
+  SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
   SiPrisma,
@@ -28,10 +29,11 @@ import {
 } from "react-icons/si";
 
 const techStack = [
+  { name: "Next.js 15", icon: SiNextdotjs, color: "#000000" },
   { name: "React 19", icon: SiReact, color: "#61DAFB" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Prisma", icon: SiPrisma, color: "#2D3748" },
+  { name: "Prisma ORM", icon: SiPrisma, color: "#2D3748" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
   { name: "Vercel", icon: SiVercel, color: "#000000" },
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },

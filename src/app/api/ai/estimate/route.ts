@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { generateProjectEstimate } from "@/lib/ai/gemini";
+import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 const estimateSchema = z.object({
@@ -10,19 +11,36 @@ const estimateSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = getClientIp(req);
+    const rl = rateLimit(`ai-estimate:${ip}`, 10, 60 * 60 * 1000);
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: "Rate limit AI estimator tercapai. Coba lagi nanti." },
+        { status: 429, headers: { "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)) } }
+      );
+    }
     const body = await req.json();
     const validated = estimateSchema.parse(body);
 
     const estimate = await generateProjectEstimate(
       validated.projectType,
       validated.features,
-      ["Next.js", "TypeScript", "Tailwind", "Prisma"]
+      ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Prisma ORM"]
     );
 
-    // Parse the stream response
+    // Parse the stream response (supports both ReadableStream and AsyncIterable)
     let fullText = "";
-    for await (const chunk of estimate) {
-      fullText += chunk;
+    if (estimate instanceof ReadableStream) {
+      const reader = estimate.getReader();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        fullText += value;
+      }
+    } else {
+      for await (const chunk of estimate as AsyncIterable<string>) {
+        fullText += chunk;
+      }
     }
 
     // Try to parse JSON from the response

@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -27,6 +28,14 @@ const consultationSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = getClientIp(req);
+    const rl = rateLimit(`consultation:${ip}`, 5, 60 * 60 * 1000);
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: "Terlalu banyak permintaan. Coba lagi dalam 1 jam." },
+        { status: 429, headers: { "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)) } }
+      );
+    }
     const body = await req.json();
     const validated = consultationSchema.parse(body);
 
@@ -42,8 +51,11 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // TODO: Send notification email/WhatsApp
-    // await sendNotification(consultation);
+    // Notification hook: log + optional Resend/WhatsApp integration
+    const notifPayload = `[Consultation] ${validated.name} <${validated.email}> - ${validated.projectType} / ${validated.budget}`;
+    console.log(notifPayload, consultation.id);
+    // If RESEND_API_KEY is set, you can enable email here:
+    // await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ from: "noreply@jasawebcoding.com", to: "hello@jasawebcoding.com", subject: notifPayload, html: `<pre>${JSON.stringify(validated, null, 2)}</pre>` }) });
 
     return NextResponse.json({ success: true, id: consultation.id });
   } catch (error) {

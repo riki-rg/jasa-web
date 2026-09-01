@@ -47,11 +47,11 @@ test.describe("Landing Page", () => {
   test("should display tech stack", async ({ page }) => {
     await expect(page.locator("#tech-stack")).toBeVisible();
     await expect(page.locator("#tech-stack").locator("text=Modern stack, tanpa over-engineering.")).toBeVisible();
-    // TechStackMarquee actual content is React 19 / Prisma (not Next.js 15 / Prisma ORM)
+    await expect(page.locator("#tech-stack").locator("text=Next.js 15").first()).toBeVisible();
     await expect(page.locator("#tech-stack").locator("text=React 19").first()).toBeVisible();
     await expect(page.locator("#tech-stack").locator("text=TypeScript").first()).toBeVisible();
     await expect(page.locator("#tech-stack").locator("text=Tailwind CSS").first()).toBeVisible();
-    await expect(page.locator("#tech-stack").locator("text=Prisma").first()).toBeVisible();
+    await expect(page.locator("#tech-stack").locator("text=Prisma ORM").first()).toBeVisible();
   });
 
   test("should have CTA button to consultation", async ({ page }) => {

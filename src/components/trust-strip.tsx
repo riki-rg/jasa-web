@@ -12,10 +12,10 @@ const stats = [
 
 const badges = [
   { label: "TypeScript Strict", desc: "Type-safe codebase" },
-  { label: "Test Coverage > 80%", desc: "Vitest + Playwright" },
+  { label: "Vitest + Playwright", desc: "Unit + E2E tested" },
   { label: "CI/CD Pipeline", desc: "GitHub Actions" },
   { label: "Vercel Deploy Ready", desc: "Zero-config deploy" },
-  { label: "PostgreSQL Ready", desc: "Production database" },
+  { label: "Prisma ORM", desc: "Production database" },
   { label: "Security Headers", desc: "CSP, HSTS, X-Frame" },
 ];
 

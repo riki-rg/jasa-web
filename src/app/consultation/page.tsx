@@ -38,7 +38,7 @@ export default function ConsultationPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-  const [aiEstimate, setAiEstimate] = useState<string | null>(null);
+  const [aiEstimate, setAiEstimate] = useState<unknown | null>(null);
   const [isEstimating, setIsEstimating] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -254,13 +254,18 @@ export default function ConsultationPage() {
                     )}
                   </Button>
 
-                  {aiEstimate && (
+                  {aiEstimate !== null && (
                     <div className="p-4 rounded-lg bg-muted/50 border border-primary/20">
                       <h4 className="font-medium mb-2 flex items-center gap-2">
                         <Sparkles className="h-4 w-4 text-primary" />
-                        Estimasi AI (Simulasi)
+                        Estimasi AI
                       </h4>
-                      <p className="text-sm whitespace-pre-wrap">{aiEstimate}</p>
+                      {typeof aiEstimate === 'object' ? (
+                        <pre className="text-sm whitespace-pre-wrap overflow-auto max-h-64 bg-background/60 p-3 rounded-lg border border-border/20">{JSON.stringify(aiEstimate, null, 2)}</pre>
+                      ) : (
+                        <p className="text-sm whitespace-pre-wrap">{String(aiEstimate)}</p>
+                      )}
+                      <p className="text-xs text-muted-foreground mt-2">Estimasi otomatis via Gemini. Konsultasi human tetap lebih akurat.</p>
                     </div>
                   )}
 
