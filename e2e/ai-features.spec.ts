@@ -6,11 +6,12 @@ test.describe("AI Features", () => {
   });
 
   test("should display AI workflow section on landing page", async ({ page }) => {
-    // Scroll to AI workflow section
-    await page.locator("text=AI workflow").scrollIntoViewIfNeeded();
-    await expect(page.locator("text=AI dipakai buat bantu jualan")).toBeVisible();
-    await expect(page.locator("text=Demo AI Estimator")).toBeVisible();
-    await expect(page.locator("text=Estimasi dengan AI")).toBeVisible();
+    // AI content now lives in AboutSection: "AI as Tool, Not Gimmick"
+    await page.locator("#about").scrollIntoViewIfNeeded();
+    await expect(page.locator("text=AI as Tool, Not Gimmick")).toBeVisible();
+    await expect(page.locator("text=AI dipakai buat ngejar efisiensi")).toBeVisible();
+    // Demo button lives in PremiumLanding -> AIEstimatorDemo
+    await expect(page.locator('button:has-text("Estimasi dengan AI")').first()).toBeVisible();
   });
 
   test("should have AI estimate button on consultation page", async ({ page }) => {
@@ -24,11 +25,12 @@ test.describe("AI Features", () => {
   });
 
   test("should have clickable AI estimate demo button on landing page", async ({ page }) => {
-    // Test the AI estimator demo button on the landing page
-    await page.locator("text=AI workflow").scrollIntoViewIfNeeded();
-    await expect(page.locator('button:has-text("Estimasi dengan AI")')).toBeEnabled();
-    await page.click('button:has-text("Estimasi dengan AI")');
-    // Demo button is clickable (no loading state in demo)
-    await expect(page.locator('button:has-text("Estimasi dengan AI")')).toBeVisible();
+    // AIEstimatorDemo is in the landing main content, not a dedicated "AI workflow" id
+    const demoButton = page.locator('button:has-text("Estimasi dengan AI")').first();
+    await demoButton.scrollIntoViewIfNeeded();
+    await expect(demoButton).toBeVisible();
+    await expect(demoButton).toBeEnabled();
+    await demoButton.click();
+    await expect(demoButton).toBeVisible();
   });
 });

@@ -7,13 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
-      "node_modules/**",
-      "dist/**",
-      "build/**",
-      ".next/**",
-      "*.log"
-    ]
+    "includes": ["**", "!node_modules", "!dist", "!build", "!.next", "!*.log"]
   },
   "formatter": {
     "enabled": true,
@@ -28,8 +22,7 @@
       "recommended": true,
       "style": {
         "useConst": "error",
-        "noParameterAssign": "error",
-        "noUnusedVariables": "error"
+        "noParameterAssign": "error"
       },
       "correctness": {
         "noUnusedImports": "error",
